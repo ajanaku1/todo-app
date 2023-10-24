@@ -1,0 +1,99 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #314d74, #f225ea, #cab8d7);
+    padding: 10px;
+}
+
+.todo-app {
+    max-width: 540px;
+    margin: 100px auto 20px;
+    background: #fff;
+    padding: 40px 30px 70px;
+    border-radius: 10px;
+}
+
+.todo-app h2 {
+    color: #314d74;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+
+}
+
+.todo-app h2 img {
+    height: 40px;
+    width: 40px;
+    margin-left: 10px;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #edeef0;
+    border-radius: 30px;
+    padding-left: 20px;
+    margin-bottom: 25px;
+}
+
+.row input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 10px;
+}
+
+button {
+    border: none;
+    outline: none;
+    padding: 16px 50px;
+    background: #FF725E;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 40px;
+}
+
+#list-container li {
+    list-style: none;
+    font-size: 16px;
+    padding: 12px 8px 12px 50px;
+    user-select: none;
+}
+
+#list-container li input {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+#list-container li input[type="checkbox"]:checked + label {
+    text-decoration: line-through;
+}
+
+#list-container li span {
+    float:right;
+    width: 30px;
+    height: 30px;
+    font-size: 22px;
+    color: #314d74;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#list-container li span:hover {
+    cursor: pointer;
+    background-color: #cab8d7;
+    color: #FF725E;
+}
