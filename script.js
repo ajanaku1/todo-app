@@ -6,23 +6,20 @@ function addTask() {
         alert('You must name your task!')
     } else {
         let li = document.createElement('li'); //create new list item
+        li.innerText = inputBox.value;
 
-        let checkBox = document.createElement('input'); //create new input
-        checkBox.setAttribute('type','checkbox'); //give it new attribute type and set it to checkbox
+        let span1 = document.createElement('span');
+        span1.innerHTML = '\u00d7'
 
-        let label = document.createElement('label');//create new label
-        label.innerText = inputBox.value;
+        let span2 = document.createElement('span');
+        span2.innerHTML = '\u2713'
 
-        let span = document.createElement('span');
-        span.innerHTML = '\u00d7'
+        //appendthe li to the listcontainer
+        listContainer.appendChild(li);
 
-        //append the checkbox and label to the li
-        li.appendChild(checkBox);
-        li.appendChild(label);
-        li.appendChild(span);
-
-
-        listContainer.appendChild(li); //append the li with child element checkbox and label
+        //append both span element to the
+        li.appendChild(span1);
+        li.appendChild(span2);
 
         inputBox.value = ''; //set input value back to an empty string
     }
@@ -30,13 +27,17 @@ function addTask() {
 }
 
 listContainer.addEventListener('click', function(e){
-    if (e.target.tagName === 'INPUT'){
-        let label = e.target.nextElementSibling;
-        label.style.textDecoration = 'line-through';
+    if (e.target.tagName === 'SPAN'){
+        let listItem = e.target.parentElement;
+
+        if (e.target.innerHTML === '\u00d7'){
+            listItem.remove();
+        } else if (e.target.innerHTML === '\u2713'){
+            listItem.style.textDecoration = 'line-through';
+        }
+
         saveData();
-    } else if (e.target.tagName === 'SPAN'){
-        e.target.parentElement.remove();
-        saveData();
+        
     }
 }, false);
 
